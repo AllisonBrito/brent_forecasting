@@ -17,8 +17,8 @@ def show_dashboard():
     st.title("📊 Análise dos Preços do Petróleo Brent")
 
     # Converter para objetos datetime do Python
-    min_date = df["data"].min()
-    max_date = df["data"].max()
+    min_date = df["data"].min().to_pydatetime()
+    max_date = df["data"].max().to_pydatetime()
 
     coluna1, coluna2 = st.columns(2)
 
