@@ -35,7 +35,7 @@ def show_dashboard():
         max_value=max_date,
         value=(min_date, max_date), format="DD/MM/YYYY")
     
-    df_filtrado = df[(df["ano"] >= data_inicio) & (df["ano"] <= data_fim)]
+    df_filtrado = df[(df["data"] >= data_inicio) & (df["data"] <= data_fim)]
 
     df_ano = df_filtrado[['ano', 'preco']].groupby(['ano']).mean().round(2)
     # Fazer o groupby e ordenar cronologicamente usando a data original
