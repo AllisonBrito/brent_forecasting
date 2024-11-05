@@ -33,7 +33,7 @@ def show_dashboard():
         "Selecione o intervalo de datas:",
         min_value=min_date,
         max_value=max_date,
-        value=(min_date, max_date))
+        value=(min_date, max_date), format="DD/MM/YYYY")
     
     df_filtrado = df[(df["ano"] >= data_inicio) & (df["ano"] <= data_fim)]
 
