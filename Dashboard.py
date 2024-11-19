@@ -15,27 +15,35 @@ def formatar_dolar(valor):
 # Função para exibir o dashboard
 def show_dashboard():
     st.title("📊 Análise dos Preços do Petróleo Brent")
+    st.sidebar.title("Filtro")
 
     # Converter para objetos datetime do Python
-    min_date = df["data"].min().to_pydatetime()
-    max_date = df["data"].max().to_pydatetime()
+    min_date = df["ano"].min()
+    max_date = df["ano"].max()
 
-    coluna1, coluna2 = st.columns(2)
-
-    with coluna1:
-        option = st.selectbox(
-    "Selecione o tipo da visualização:",
-    ("Preço Histórico", "Média Mensal", "Média Anual"))
-        
-    with coluna2:
-        # Slider para selecionar intervalo de datas
+    with st.sidebar:        
+    # Slider para selecionar intervalo de datas
         data_inicio, data_fim = st.slider(
         "Selecione o intervalo de datas:",
         min_value=min_date,
         max_value=max_date,
-        value=(min_date, max_date), format="DD/MM/YYYY")
+        value=(min_date, max_date))
+
+
+    with st.sidebar:
+            option = st.selectbox(
+    "Selecione o tipo da visualização:",
+    ("Preço Histórico", "Média Mensal", "Média Anual"))
+            
     
-    df_filtrado = df[(df["data"] >= data_inicio) & (df["data"] <= data_fim)]
+            
+    
+
+
+    
+        
+    
+    df_filtrado = df[(df["ano"] >= data_inicio) & (df["ano"] <= data_fim)]
 
     df_ano = df_filtrado[['ano', 'preco']].groupby(['ano']).mean().round(2)
     # Fazer o groupby e ordenar cronologicamente usando a data original
@@ -92,3 +100,5 @@ def show_dashboard():
         col1.plotly_chart(fig_mes, use_container_width=True)
         col2.plotly_chart(box_plot_mes, use_container_width=True)
         col3.plotly_chart(hist_plot_mes, use_container_width=True)
+
+show_dashboard()
