@@ -1,2 +1,2 @@
 # brent_forecasting
-Data App para análise e Forecast dos preços de petróleo
+Data App para análise e forecast dos preços de petróleo
