@@ -12,6 +12,7 @@ def carregar_dados():
     # Convertenado a coluna data para o tipo datetime
     df['data'] = pd.to_datetime(df['data'], dayfirst=True)
     df['ano'] = df['data'].dt.year
+    df['ano'] = df['ano'].astype('int32')
     df['ano_mes'] = df['data'].dt.strftime('%b %y').str.capitalize()
     return df
 
@@ -20,5 +21,3 @@ def dados_prophet():
     df_prophet = df[['data', 'preco']]
     df_prophet.rename(columns={"data": "ds", "preco": "y"}, inplace=True)
     return df_prophet
-
-print(dados_prophet())
