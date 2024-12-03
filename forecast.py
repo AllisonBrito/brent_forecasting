@@ -76,7 +76,7 @@ def show_forecasting():
         df_cv = cross_validation(model, initial='8000 days', period='365 days', horizon='30 days')
         # Calculando as métricas de desempenho
         df_p = performance_metrics(df_cv)
-        df_p[['horizon', 'mape']].set_index('horizon')
+        st.dataframe(df_p[['horizon', 'mape']].set_index('horizon'))
 
         
         
