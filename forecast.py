@@ -71,4 +71,12 @@ def show_forecasting():
 
         st.write("""Ao realizar a validação cruzada para diferentes horizontes de previsão, de 3 a 30 dias, 
                     obtivemos um MAPE que varia entre aproxidamente 21.8% e 25.2%  """)
+
+        df_cv = cross_validation(model, initial='8000 days', period='365 days', horizon='30 days')
+        # Calculando as métricas de desempenho
+        df_p = performance_metrics(df_cv)
+        df_p[['horizon', 'mape']].set_index('horizon')
+
+        
+        
         
