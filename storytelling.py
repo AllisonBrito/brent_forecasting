@@ -20,7 +20,12 @@ def show_storytelling():
 
     st.write("## Crise do Petróleo de 2014-2016")
 
-    st.write("Entre 2014 e 2016, o preço do petróleo Brent caiu de mais de USD 100 por barril para menos de USD 30.")
+    st.write("""Entre 2014 e 2016, o preço do petróleo Brent caiu de mais de USD 100 por barril para menos de USD 30.
+                Essa crise se deu por alguns fatores, mas podemos destacar o que, ao nosso ver, foi o mais importante: a oferta ficou maior que a demanda. 
+                Isso porque, surgiram diversos países produtores e inclusive os EUA aumentando a sua produção. Houve um empenho maior em buscar eficiência em processos industriais e meios de transporte. 
+                Substituição do petróleo para o gás natural. 
+                Também é necessário levar em consideração a desaceleração de países como a China. """)
+    
 
     fig_crise_petroleo = px.line(df[(df['ano'] >= 2014) & (df['ano'] <= 2016)], x="data", y="preco", labels={"data": "", "preco": "Preço por barril em USD"})
     st.plotly_chart(fig_crise_petroleo, use_container_width=True)
@@ -47,7 +52,10 @@ def show_storytelling():
     st.write("## Choque do Petróleo de 2020 (COVID-19)")
 
     st.write("""A pandemia de COVID-19 causou uma queda abrupta na demanda por petróleo, 
-             levando o preço do Brent a cair para uma mínima histórica de USD 9 por barril em abril de 2020.""")
+             levando o preço do Brent a cair para uma mínima histórica de USD 9 por barril em abril de 2020.
+            A chegada do Coronavírus e do isolamento social, afetam todo o mercado mundial em uma crise generalizada na demanda de produtos.
+            No caso do petróleo, houve uma queda drástica  no consumo, o que consequentemente gera uma distorção nos preço. Isso levou a um aumento no estoque e,
+             novamente, temos mais oferta do que demanda.""")
     
     fig_covid_petroleo = px.line(df[(df['ano'] >= 2019) & (df['ano'] <= 2020)], x="data", y="preco", labels={"data": "", "preco": "Preço por barril em USD"})
     st.plotly_chart(fig_covid_petroleo, use_container_width=True)
@@ -73,7 +81,11 @@ def show_storytelling():
 
     st.write("## Alta dos Preços em 2022")
 
-    st.write("""Em 2022 os preços do Brent subiram acima de USD 120 por barril devido à recuperação econômica pós-COVID e à guerra na Ucrânia.""")
+    st.write("""Em 2022 os preços do Brent subiram acima de USD 120 por barril devido à recuperação econômica pós-COVID e à guerra na Ucrânia.
+                Além da retomada à vida normal após a desaceleração da COVID-19, houveram alguns fatores importantes que fizeram com que houvesse uma alta nos preços do petróleo,
+                 como a Guerra da Ucrânia e Rússia, já que a Rússia é um dos maiores produtores do mundo e  sofreu sanções e interrupção da sua exportação, reduzindo a oferta. 
+                Temos também a OPEC (Organização dos Países Exportadores de Petróleo) e seus aliados, incluindo a Rússia, formam o grupo OPEC+, que implementou cortes na produção de petróleo para equilibrar os mercados e apoiar os preços.
+                Além disso, temos questões como desastres naturais, especulação financeira com o aumento das tensões geopolíticas, aumento no valor do gás natural e inflação global..""")
     
     fig_2022_petroleo = px.line(df[(df['ano'] >= 2021) & (df['ano'] <= 2022)], x="data", y="preco", labels={"data": "", "preco": "Preço por barril em USD"})
     st.plotly_chart(fig_2022_petroleo, use_container_width=True)
