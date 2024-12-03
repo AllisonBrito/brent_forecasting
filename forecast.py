@@ -66,4 +66,9 @@ def show_forecasting():
         fig_componentes = model.plot_components(forecast)
         plt.tight_layout()
         st.pyplot(fig_componentes)
+
+        st.write("### Validação Cruzada")
+
+        st.write("""Ao realizar a validação cruzada para diferentes horizontes de previsão, de 3 a 30 dias, 
+                    obtivemos um MAPE que varia entre aproxidamente 21.8% e 25.2%  """)
         
