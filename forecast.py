@@ -4,6 +4,7 @@ import plotly.express as px
 from prophet import Prophet
 from data import dados_prophet
 import matplotlib.pyplot as plt
+from prophet.diagnostics import cross_validation, performance_metrics
 
 
 
